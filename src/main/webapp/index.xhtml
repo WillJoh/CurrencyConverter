@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Currency Converter</title>
+    </h:head>
+        <h:form>
+    
+            <h1>Convert between currencies</h1>
+            From: 
+
+                <h:selectOneMenu id="from" value="#{converterMngr.from}">
+                    <f:selectItems value="#{converterMngr.getCurrencies()}"/>
+                </h:selectOneMenu>
+
+
+            To: 
+
+            <h:selectOneMenu id="to" value="#{converterMngr.to}">
+                <f:selectItems value="#{converterMngr.getCurrencies()}"/>
+            </h:selectOneMenu>
+
+            <br/>
+            <p>
+                Amount: 
+                <h:inputText value="#{converterMngr.amount}"/>
+            </p>
+            
+            <br/>
+            <p>
+                <h:outputLabel value="#{converterMngr.amount * converterMngr.rate}"/>
+            </p>
+
+            <p>
+                <h:commandButton value="Get conversion" action="#{converterMngr.getConversionRate}"/>
+            </p>
+        
+        </h:form>
+
+    
+
+</html>
